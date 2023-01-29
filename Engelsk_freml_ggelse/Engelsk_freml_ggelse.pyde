@@ -2,46 +2,56 @@ from Effekter import Stjerne
 
 
 def setup():
-    global photo, effekter, photostation, photorocket, photonout, photobench
+    global photo, effekter, photostation, photorocket, photonout, photobench, photomoon
     fullScreen()
     size(1920,1080)
     photo = loadImage("Timeline.png")
     effekter = [Stjerne() for i in range(1000)]
-    photostation = loadImage("SpaceStation.jpg")
+    photostation = loadImage("SpaceStation.png")
     photorocket = loadImage("Rocket.png")
     photonout = loadImage("Astronout.png")
-    photobench = loadImage("Bench.jpg")
+    photobench = loadImage("Malthe.png")
+    photomoon = loadImage("Moon.png")
+                          
     
 def slide(tilstand):
-    global x, photo, photostation, photorocket, photonout, photobench
+    global x, photo, photostation, photorocket, photonout, photobench, photomoon
     
     if tilstand == "hub":
         fill(255,0,0)
-        rect(0,0,200,200)
         scale(0.2)
-        image(photostation, 2400, 200)
+        
         scale(0.3)
-        image(photorocket, -1000,-1000)
         scale(10)
         rotate(320)
         image(photonout, 2100,1150)
         scale(0.5)
-        image(photobench, 3200, 4400)
+        image(photobench, 2000, 3000)
+        scale(2)
+        scale(0.5)
+        image(photorocket,-400,150)
+        scale(2)
+        scale(0.5)
+        image(photomoon,-2000,2300)
+        image(photostation, 1300, 1500)
         
     elif tilstand == "timeline":
         fill(255,0,0)
         image(photo,xb,0)
         scale(0.1)
-        image(photostation, 14000, 6000)
+        image(photostation, 17000, 8000)
     elif tilstand == "Missions":
         fill(0,255,0)
-        rect(500,500,500,500)
+        scale(0.1)
+        image(photostation, 100, 8000)
     elif tilstand == "Tech":
         fill(0,0,255)
-        rect(500,500,500,500)
+        scale(0.1)
+        image(photostation, 100, 100)
     elif tilstand == "Compare":
         fill(0,0,255)
-        rect(500,500,500,500)
+        scale(0.1)
+        image(photostation, 17000, 100)
         
 tilstand = "hub"
 timer = 0
